@@ -1,0 +1,82 @@
+/* ======================
+MOVING INFO CAROUSEL
+====================== */
+
+.ticker-bar{
+
+width:100%;
+max-width:1920px;
+
+height:100px;
+
+margin:auto;
+
+overflow:hidden;
+
+background:#F7ECDF;
+
+border:1px solid #70441B;
+
+display:flex;
+align-items:center;
+}
+
+/* Moving strip */
+.ticker-track{
+
+display:flex;
+
+align-items:center;
+
+gap:44px;
+
+width:max-content;
+
+animation:marqueeMove 35s linear infinite;
+}
+
+/* each text+icon pair */
+.ticker-item{
+display:flex;
+align-items:center;
+gap:44px;
+
+white-space:nowrap;
+}
+
+.ticker-icon{
+width:29px;
+height:28px;
+
+color:#70441B;
+
+flex-shrink:0;
+}
+
+.ticker-item span{
+
+font-family:"Tenor Sans", serif;
+
+font-size:22px;
+
+font-weight:400;
+
+color:#986A3E;
+
+text-transform:uppercase;
+
+white-space:nowrap;
+}
+
+/* infinite left movement */
+@keyframes marqueeMove{
+
+from{
+transform:translateX(0);
+}
+
+to{
+transform:translateX(-50%);
+}
+
+}
