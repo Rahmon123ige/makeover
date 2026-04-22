@@ -9,6 +9,7 @@ import ff2 from '../../../public/ff2.png'
 import ff3 from '../../../public/ff3.png'
 import ff4 from '../../../public/ff4.png'
 import ff5 from '../../../public/ff5.png'
+import video from '../../../public/treatnemt.mp4'
 
 export default function Hero() {
   return (
@@ -22,7 +23,7 @@ export default function Hero() {
         loop
         playsInline
       >
-        <source src="/public/face video.mp4" type="video/mp4" />
+        <source src={video} type="video/mp4" />
       </video>
 
       <div className="hero-overlay"></div>
