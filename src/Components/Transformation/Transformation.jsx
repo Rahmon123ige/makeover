@@ -26,6 +26,20 @@ setSlider(percent);
 
 };
 
+const handleTouchMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const touch = e.touches[0];
+
+  const x = touch.clientX - rect.left;
+
+  let percent = (x / rect.width) * 100;
+
+  if (percent < 0) percent = 0;
+  if (percent > 100) percent = 100;
+
+  setSlider(percent);
+};
+
 return(
 
 <section className="transform-section">
@@ -48,13 +62,14 @@ designed to bring out your best.
 
 
 <div
-className="comparison-wrapper"
-onMouseMove={(e)=>{
-if(e.buttons===1){
-handleMove(e);
-}
-}}
-onClick={handleMove}
+  className="comparison-wrapper"
+  onMouseMove={(e)=>{
+    if(e.buttons===1){
+      handleMove(e);
+    }
+  }}
+  onClick={handleMove}
+  onTouchMove={handleTouchMove}
 >
 
 {/* BEFORE */}

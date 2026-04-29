@@ -37,7 +37,7 @@ image:facial,
 benefits:[
 "Deep pore cleansing",
 "Hydrates skin",
-"Brightens complexion",
+"Brightens complexion", 
 "Smooth texture",
 "Restores elasticity"
 ]

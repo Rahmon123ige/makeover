@@ -377,3 +377,205 @@ to{
 transform:rotate(25deg) rotate(360deg);
 }
 }
+
+
+.mobile-btn{display:none; /* hidden on desktop */}
+
+
+/* MENU ICON (hidden on desktop) */
+.menu-icon{
+display:none; /* stays hidden on desktop */
+
+width:44px;
+height:44px;
+
+border-radius:50%;
+
+
+
+backdrop-filter:blur(14px);
+
+
+
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
+transition:.3s ease;
+}
+
+/* ICON COLOR */
+.menu-icon svg{
+color:white;
+}
+
+/* HOVER EFFECT */
+/* .menu-icon:hover{
+background:rgba(255,255,255,0.2);
+transform:scale(1.05);
+} */
+
+/* MOBILE STYLES */
+@media (max-width: 900px){
+
+.navbar{
+padding:20px;
+height:90px;
+}
+
+/* hide desktop stuff */
+.desktop-btn{
+display:none;
+}
+
+.nav-menu{
+position:fixed;
+top:0;
+right:-100%;
+
+width:75%;              /* 👈 half-ish screen */
+max-width:320px;       /* 👈 prevents too wide */
+
+height:100vh;
+
+background: rgba(0,0,0,0.5);
+
+backdrop-filter:blur(25px);
+
+flex-direction:column;
+justify-content:center;
+align-items:flex-start;
+
+padding:40px;
+
+gap:25px;
+
+transition:0.4s ease;
+border-radius: 0;
+}  
+
+
+
+/* OPEN STATE */
+.nav-menu.active-menu{
+right:0;
+}
+/* show mobile button inside menu */
+.mobile-btn{
+display:flex;
+margin-top:20px;
+}
+
+/* show menu icon */
+.menu-icon{
+display:block;
+}
+
+/* logo text smaller */
+.logo h2{
+font-size:18px;
+}
+
+}
+
+
+/* TABLET */
+@media (max-width: 1024px){
+
+.hero-content{
+padding:140px 40px 0 40px;
+}
+
+.hero-left{
+width:100%;
+}
+
+.hero-text h1{
+font-size:70px;
+}
+
+.hero-text p{
+font-size:18px;
+}
+
+}
+
+
+/* MOBILE */
+@media (max-width: 768px){
+
+.hero{
+height:100vh;
+}
+
+.hero-content{
+flex-direction:column;
+justify-content:center;
+align-items:flex-start;
+
+padding:120px 20px 40px 20px;
+}
+
+.hero-left{
+width:100%;
+gap:24px;
+}
+
+.hero-text h1{
+font-size:42px;
+line-height:120%;
+}
+
+.hero-text p{
+font-size:16px;
+}
+
+.hero-buttons{
+flex-direction:column;
+width:100%;
+}
+
+.primary-btn,
+.secondary-btn{
+width:100%;
+justify-content:center;
+}
+
+/* hide orbit on mobile (important) */
+.service-orbit{
+display:none;
+}
+
+}
+
+
+.hero-text,
+.hero-buttons{
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s ease forwards;
+}
+
+.hero-buttons{
+animation-delay:.3s;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+.primary-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.secondary-btn:hover{
+background:rgba(255,255,255,.2);
+}
+
+

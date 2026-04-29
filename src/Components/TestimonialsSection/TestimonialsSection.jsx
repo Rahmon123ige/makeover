@@ -78,7 +78,9 @@
                 testimonials[startIndex],
                 testimonials[(startIndex+1)%testimonials.length],
                 testimonials[(startIndex+2)%testimonials.length]
-                ];
+                ];   
+
+                
 
                 return(
 
@@ -109,7 +111,7 @@
 
                 <button onClick={prevSlide}>
                 <ArrowLeft size={18}/>
-                </button>
+                </button> 
 
                 <button onClick={nextSlide}>
                 <ArrowRight size={18}/>
@@ -121,78 +123,45 @@
 
 
 
-                <div className="testimonial-cards">
+               <div className="testimonial-cards">
 
-                <AnimatePresence mode="wait">
+  {testimonials.map((item, index) => {
 
-                {visibleCards.map((item,index)=>(
+    const position =
+      index === startIndex
+        ? "active"
+        : index === (startIndex - 1 + testimonials.length) % testimonials.length
+        ? "prev"
+        : index === (startIndex + 1) % testimonials.length
+        ? "next"
+        : "hidden";
 
-                <motion.div
-                key={item.name}
+    return (
+      <motion.div
+        key={item.name}
+        className={`testimonial-card ${position}`}
+        initial={false}
+        animate={position}
+        transition={{ duration: 0.5 }}
+      >
 
-                className="testimonial-card"
+        <div className="card-top">
+          <div className="stars">★★★★★</div>
+          <p>{item.review}</p>
+        </div>
 
-                initial={{
-                opacity:0,
-                x:100
-                }}
+        <div className="card-user">
+          <img src={item.image} alt="" />
+          <div>
+            <h4>{item.name}</h4>
+            <span>{item.role}</span>
+          </div>
+        </div>
 
-                animate={{
-                opacity:1,
-                x:0
-                }}
+      </motion.div>
+    );
+  })}
 
-                exit={{
-                opacity:0,
-                x:-100
-                }}
-
-                transition={{
-                duration:.45
-                }}
-                >
-
-                <div className="card-top">
-
-                <div className="stars">
-                ★★★★★
-                </div>
-
-                <p>
-                {item.review}
-                </p>
-
-                </div>
-
-
-                <div className="card-user">
-
-                <img
-                src={item.image}
-                alt=""
-                />
-
-                <div>
-
-                <h4>{item.name}</h4>
-
-                <span>{item.role}</span>
-
-                </div>
-
-                </div>
-
-                </motion.div>
-
-                ))}
-
-                </AnimatePresence>
-
-                </div>
-
-
-                </section>
-
-                )
-
-                }
+</div>
+   </section>
+      )         }
